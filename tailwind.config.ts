@@ -6,31 +6,32 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  darkMode: 'class',
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
       colors: {
         // Brand colors
-        beige: {
-          100: '#F5EEE6',
-        },
-        brown: {
-          100: '#A87C7C',
-          200: '#7E6363',
-          300: '#503C3C',
-          400: '#3E3232',
-        },
+        primary: '#2DD881',
+        secondary: '#1C0B19',
+        accent: '#F5F5F5',
+        'bg-input': '#F5F5F5',
         'dark-purple': '#1C0B19',
         'federal-blue': '#140D4F',
         keppel: '#4EA699',
         esmerald: '#2DD881',
         aquamarine: '#6FEDB7',
-        ultraviolet: '#645E9D',
-        russianviolet: '#261447',
+        'text-white': {
+          60: 'rgba(255, 255, 255, 0.6)',
+          85: 'rgba(255, 255, 255, 0.85)',
+          90: 'rgba(255, 255, 255, 0.9)',
+          100: 'rgba(255, 255, 255, 1)',
+        },
+        'text-black': {
+          60: 'rgba(0, 0, 0, 0.6)',
+          85: 'rgba(0, 0, 0, 0.85)',
+          90: 'rgba(0, 0, 0, 0.9)',
+          100: 'rgba(0, 0, 0, 1)',
+        },
       },
     },
   },

@@ -1,26 +1,26 @@
 import { LinkPrismic, ImagePrismic } from '@/models/prismic.model';
 
-interface Experience {
+export interface Experience {
   title: string;
   text: string;
   image?: ImagePrismic;
   link?: LinkPrismic;
   altLink?: LinkPrismic;
+  tags?: string[];
+  time?: string;
 }
 
-interface WorkExperience extends Experience {
-  time: string;
+export interface SocialMedia {
+  name: string;
+  link: LinkPrismic;
 }
 
 export interface PortfolioDataNormalized {
   name: string;
   role: string;
   text_short: string;
-  socialMedia: {
-    name: string;
-    link: LinkPrismic;
-  }[];
+  socialMedia: any[];
   summary: string[];
-  workExperiences: WorkExperience[];
+  workExperiences: Experience[];
   personalProjects: Experience[];
 }

@@ -1,5 +1,9 @@
 import { PortfolioDataNormalized } from '@/models';
-import { multiParagraphAdapter, singleParagraphAdapter } from '@/adapters';
+import {
+  multiParagraphAdapter,
+  singleParagraphAdapter,
+  tagsAdapter,
+} from '@/adapters';
 
 export function portfolioDataAdapter(data: any) {
   return {
@@ -23,12 +27,14 @@ export function portfolioDataAdapter(data: any) {
       };
     }),
     personalProjects: data.projects.map((project: any) => {
+      const tags = tagsAdapter(multiParagraphAdapter(project.tags_project));
+
       return {
         title: singleParagraphAdapter(project.title_project),
         text: multiParagraphAdapter(project.text_project),
         link: project.link_project,
         altLink: project.alt_link_project,
-        tags: multiParagraphAdapter(project.tags_project),
+        tags,
       };
     }),
   } as PortfolioDataNormalized;
