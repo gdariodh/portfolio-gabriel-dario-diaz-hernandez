@@ -26,4 +26,5 @@ export interface Portfolio {
   image: ImagePrismic;
   resumeLink: LinkPrismic;
   location: string;
+  email: string;
 }

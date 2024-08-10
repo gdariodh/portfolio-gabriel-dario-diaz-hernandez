@@ -1,23 +1,21 @@
 import { Portfolio } from '@/models';
 import {
+  imageAdapter,
   multiParagraphAdapter,
   singleParagraphAdapter,
   tagsAdapter,
 } from '@/adapters';
 
 export const portfolioAdapter = (data: any) => {
-  console.log({ data });
   return {
     name: singleParagraphAdapter(data.name),
     role: singleParagraphAdapter(data.role),
     text_short: singleParagraphAdapter(data.text_short),
     summary: multiParagraphAdapter(data.summary),
-    image: {
-      url: data.image_profile.url,
-      alt: data.image_profile.alt,
-    },
+    image: imageAdapter(data.image_profile),
     resumeLink: data.resume_link,
     location: singleParagraphAdapter(data.location),
+    email: singleParagraphAdapter(data.email),
     socialMedia: data.social_media.map((social: any) => {
       return {
         name: singleParagraphAdapter(social.name_social),
@@ -31,10 +29,7 @@ export const portfolioAdapter = (data: any) => {
         time: singleParagraphAdapter(experience.time_experience),
         link: experience.link_experience,
         altLink: experience.alt_link_experience,
-        image: {
-          url: experience.image_experience.url,
-          alt: experience.image_experience.alt,
-        },
+        image: imageAdapter(experience.image_experience),
       };
     }),
     personalProjects: data.projects.map((project: any) => {
@@ -45,6 +40,7 @@ export const portfolioAdapter = (data: any) => {
         link: project.link_project,
         altLink: project.alt_link_project,
         tags,
+        image: imageAdapter(project.image_project),
       };
     }),
   } as Portfolio;

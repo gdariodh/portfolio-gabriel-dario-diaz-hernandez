@@ -48,7 +48,7 @@ export function ButtonSocialMedia({ item }: ButtonSocialMediaProps) {
           </div>
         </TooltipTrigger>
         <TooltipContent>
-          {name === 'resume' ? 'Download' : 'My'} {capitalizeString(name)}
+          {name === 'resume' && 'Download'} My {capitalizeString(name)}
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>

@@ -1,12 +1,29 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  webpack5: true,
+  webpack: true,
   images: {
-    domains: ['localhost', 'images.prismic.io'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.prismic.io',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
   eslint: {
-    dirs: ['pages', 'components', 'lib', 'utils'],
+    dirs: [
+      'pages',
+      'components',
+      'utils',
+      'services',
+      'constants',
+      'models',
+      'hooks',
+      'store',
+      'contexts',
+    ],
   },
 };
 

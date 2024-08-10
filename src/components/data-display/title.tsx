@@ -18,7 +18,7 @@ const sizeClass: SizeClassMap = {
 };
 
 const baseClass =
-  'inline-block text-slate-900 tracking-tight dark:text-slate-200 font-[500]';
+  'block text-slate-900 tracking-tight dark:text-slate-200 font-[500]';
 
 export function Title({
   children,

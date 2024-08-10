@@ -12,6 +12,7 @@ export function SwitchTheme() {
 
   useEffect(() => {
     setMounted(true);
+    setTheme('dark');
   }, []);
 
   if (!mounted) return null;

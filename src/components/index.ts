@@ -1,5 +1,7 @@
-export * from './card/card-experience';
+export * from './actions/email.action';
+export * from './actions/resume.action';
 export * from './data-display/avatar';
+export * from './data-display/card-base';
 export * from './data-display/label';
 export * from './data-display/paragraph';
 export * from './data-display/pill';
@@ -14,6 +16,4 @@ export * from './layout/footer';
 export * from './layout/header';
 export * from './layout/sidebar';
 export * from './layout/theme-provider';
-export * from './list-of-personal-project/list-of-personal-project';
-export * from './list-of-work-experience/list-of-work-experience';
 export * from './menu/dropdown-menu';

@@ -2,12 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --tw-gradient-from: rgba(11, 15, 46, 0.7) var(--tw-gradient-from-position);
-}
-
 @layer base {
   body {
-    @apply bg-[linear-gradient(109.6deg,#F7F2FC_11.2%,#E4E6FD_57.8%,#D7EBFF_85.9%)]  dark:bg-[linear-gradient(109.6deg,#040A1F_11.2%,#0D1E2E_57.8%,#180232_85.9%)];
+    @apply bg-[linear-gradient(109.6deg,#F7F2FC_11.2%,#E4E6FD_57.8%,#D7EBFF_85.9%)] dark:bg-[linear-gradient(109.6deg,#040A1F_11.2%,#0D1E2E_57.8%,#180232_85.9%)];
   }
 }
