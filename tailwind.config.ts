@@ -14,7 +14,7 @@ const config: Config = {
         primary: '#EB3678',
         secondary: '#1C0B19',
         accent: '#F5F5F5',
-        'bg-input': '#F5F5F5',
+        background: '#F5F5F5',
         esmerald: '#2DD881',
       },
     },

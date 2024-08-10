@@ -33,7 +33,7 @@ export function SwitchTheme() {
       >
         {theme === 'light' ? <SunIcon /> : <MoonIcon />}
       </div>
-      <Switch id="theme-mode" onClick={handleThemeChange} value={theme} />
+      <Switch id="theme-mode" onClick={handleThemeChange} />
     </div>
   );
 }
