@@ -14,10 +14,14 @@ const sizeClass: SizeClassMap = {
   medium: 'text-base',
 };
 
+const baseClass = 'text-slate-700 dark:text-slate-400';
+
 export function Paragraph({
   children,
   className,
   size = 'medium',
 }: ParagraphProps) {
-  return <p className={cn(sizeClass[size], className)}>{children}</p>;
+  return (
+    <p className={cn(baseClass, sizeClass[size], className)}>{children}</p>
+  );
 }

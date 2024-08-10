@@ -15,7 +15,7 @@ export interface SocialMedia {
   link: LinkPrismic;
 }
 
-export interface PortfolioDataNormalized {
+export interface Portfolio {
   name: string;
   role: string;
   text_short: string;
@@ -23,4 +23,7 @@ export interface PortfolioDataNormalized {
   summary: string[];
   workExperiences: Experience[];
   personalProjects: Experience[];
+  image: ImagePrismic;
+  resumeLink: LinkPrismic;
+  location: string;
 }

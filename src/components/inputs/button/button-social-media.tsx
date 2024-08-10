@@ -1,5 +1,5 @@
 import { SocialMedia } from '@/models';
-import { Linkedin, Github } from 'lucide-react';
+import { Linkedin, Github, FileDown, Twitter } from 'lucide-react';
 import {
   Tooltip,
   TooltipContent,
@@ -25,6 +25,14 @@ export function ButtonSocialMedia({ item }: ButtonSocialMediaProps) {
     icon = <Github size={24} />;
   }
 
+  if (name === 'resume') {
+    icon = <FileDown size={24} />;
+  }
+
+  if (name === 'x') {
+    icon = <Twitter />;
+  }
+
   if (!name || !icon) {
     return null;
   }
@@ -34,12 +42,14 @@ export function ButtonSocialMedia({ item }: ButtonSocialMediaProps) {
       <Tooltip>
         <TooltipTrigger>
           <div>
-            <a href={link} target="_blank">
+            <a href={link} target="_blank" className="hover:text-primary">
               {icon}
             </a>
           </div>
         </TooltipTrigger>
-        <TooltipContent>My {capitalizeString(name)}</TooltipContent>
+        <TooltipContent>
+          {name === 'resume' ? 'Download' : 'My'} {capitalizeString(name)}
+        </TooltipContent>
       </Tooltip>
     </TooltipProvider>
   );

@@ -12,10 +12,13 @@ interface TitleProps {
 }
 
 const sizeClass: SizeClassMap = {
-  small: 'text-md',
-  large: 'text-3xl lg:text-4xl',
-  medium: 'text-lg',
+  small: 'text-sm',
+  large: 'text-lg',
+  medium: 'text-md',
 };
+
+const baseClass =
+  'inline-block text-slate-900 tracking-tight dark:text-slate-200 font-[500]';
 
 export function Title({
   children,
@@ -25,7 +28,7 @@ export function Title({
 }: TitleProps) {
   const hRender = React.createElement(
     type as string,
-    { className: cn(sizeClass[size], className) },
+    { className: cn(baseClass, sizeClass[size], className) },
     children
   );
 

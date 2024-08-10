@@ -1,2 +1,2 @@
-export * from './portfolio-data.adapter';
+export * from './portfolio.adapter';
 export * from './prismic.adapter';

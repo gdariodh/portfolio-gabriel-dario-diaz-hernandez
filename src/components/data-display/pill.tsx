@@ -1,7 +1,7 @@
 import { Size, SizeClassMap } from '@/models';
 import { cn } from '@/utils';
 
-type Color = 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+type Color = 'primary';
 export type ColorClassMap = Record<Color, string>;
 
 interface PillProps {
@@ -18,11 +18,7 @@ const sizeClassMap: SizeClassMap = {
 };
 
 const colorClassMap: ColorClassMap = {
-  primary: 'bg-primary text-white',
-  secondary: 'bg-secondary text-white',
-  success: 'bg-success text-white',
-  warning: 'bg-warning text-white',
-  danger: 'bg-danger text-white',
+  primary: 'text-white bg-slate-500/70 dark:bg-white/10',
 };
 
 export function Pill({
