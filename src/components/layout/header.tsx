@@ -1,30 +1,26 @@
 'use client';
-import { Container, SwitchTheme } from '@/components';
-import { cn } from '@/utils';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-
-export const Routes = {
-  home: {
-    path: '/',
-    label: 'Experience',
-  },
-  contact: {
-    path: '/about-me',
-    label: 'About Me',
-  },
-};
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { cn } from '@/utils';
+import { ROUTES as routes } from '@/constants/routes';
+import { Container, SwitchTheme } from '@/components';
 
 export function Header() {
   const pathname = usePathname();
+  const router = useRouter();
 
   return (
-    <header className="sticky top-0 z-40 w-full backdrop-blur text-nowrap h-[64px] flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white/95 supports-backdrop-blur:bg-white/60 dark:bg-transparent">
+    <header
+      className="sticky top-0 rounded-tl-md rounded-tr-md z-40 w-full backdrop-blur text-nowrap flex-none transition-colors duration-500 border-b border-slate-900/20 dark:border-slate-50/[0.2] bg-white/20 supports-backdrop-blur:bg-white/60 dark:bg-slate-900/80"
+      translate="no"
+    >
       <Container className="flex items-center justify-between py-4">
         <ul className="flex items-center gap-4">
-          {Object.entries(Routes).map(([key, value]) => {
+          {Object.entries(routes).map(([key, value]) => {
             const { path, label } = value;
-            const isActive = pathname === path;
+
+            const isActive = path === pathname;
 
             return (
               <li key={key}>

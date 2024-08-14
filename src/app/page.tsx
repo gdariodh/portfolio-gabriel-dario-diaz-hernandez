@@ -10,14 +10,14 @@ export default async function Home() {
       <ListOfExperience
         experiences={workExperiences}
         title={'Work Experiences'}
-        label={'Opportunities I Have Had the Privilege to Participate In'}
+        label={`Projects I’ve Contributed To`}
       />
 
       {showPersonalProjects && (
         <ListOfExperience
           experiences={personalProjects}
           title={'Personal Projects'}
-          label="Developed in My Free Time"
+          label="Built in My Spare Time"
         />
       )}
     </div>

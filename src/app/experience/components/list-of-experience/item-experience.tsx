@@ -2,32 +2,30 @@ import React from 'react';
 import Image from 'next/image';
 import { cn, truncateText } from '@/utils';
 import { Experience } from '@/models';
-import { Title, Paragraph, Pill, CardBase } from '@/components';
 import { ExternalLink } from 'lucide-react';
 import Link from 'next/link';
+import { Title, Paragraph, Pill, CardBase } from '@/components';
+
+const MAX_TAGS = 8;
 
 interface ItemExperienceProps {
   experience: Experience;
-  className?: string;
 }
 
-export function ItemExperience({ experience, className }: ItemExperienceProps) {
-  const { image, title, text, tags, link, altLink, time, slug, type } =
-    experience;
+export function ItemExperience({ experience }: ItemExperienceProps) {
+  const { image, title, text, tags, time, slug, type } = experience;
 
   const experienceLink = `/experience/${type}/${slug}`;
+
   return (
     <Link href={experienceLink}>
-      <CardBase
-        className={cn(
-          className,
-          'dark:hover:bg-slate-900 dark:hover:border-primary transition-colors ease-in duration-200'
-        )}
-      >
+      <CardBase variant="primary">
         <div className="flex relative">
-          <div className="flex gap-3">
-            <div>
-              <Title size="medium">{title}</Title>
+          <div className="flex gap-3 flex-wrap">
+            <div className="max-w-42 lg:max-w-md">
+              <div translate="no">
+                <Title size="medium">{title}</Title>
+              </div>
               {time && time?.length >= 0 && (
                 <Paragraph size="small" className="font-[500]">
                   {time}
@@ -55,19 +53,17 @@ export function ItemExperience({ experience, className }: ItemExperienceProps) {
           </div>
 
           <div className="absolute right-0">
-            <Link href={`/experience`}>
-              <ExternalLink size={16} className="ml-1 hover:scale-110" />
-            </Link>
+            <ExternalLink size={16} className="ml-1 hover:scale-110" />
           </div>
         </div>
 
         <Paragraph size="small" className="max-w-xl py-2">
-          {text[0]}
+          {truncateText(text?.[0], 250)}
         </Paragraph>
 
         {tags && (
-          <ul className="flex items-center gap-1 flex-wrap">
-            {tags?.slice(0, 8)?.map((tag, index) => (
+          <ul className="flex items-center gap-1 flex-wrap" translate="no">
+            {tags?.slice(0, MAX_TAGS)?.map((tag, index) => (
               <li key={index}>
                 <Pill>{tag}</Pill>
               </li>

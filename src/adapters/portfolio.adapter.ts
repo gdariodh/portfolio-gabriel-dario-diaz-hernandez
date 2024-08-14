@@ -46,6 +46,7 @@ export const portfolioAdapter = (data: any) => {
         text: multiParagraphAdapter(project.text_project),
         link: project.link_project,
         altLink: project.alt_link_project,
+        codeLink: project.code_link_project,
         tags,
         image: imageAdapter(project.image_project),
         slug: project.id_project,

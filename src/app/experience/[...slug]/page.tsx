@@ -1,27 +1,39 @@
-import { Title, Paragraph, Pill, CardBase } from '@/components';
-import BackAction from '@/components/actions/back.action';
-import { getExperienceDataBySlug } from '@/services';
-import Image from 'next/image';
 import React from 'react';
+import Image from 'next/image';
+import { getExperienceDataBySlug } from '@/services';
+import {
+  Title,
+  Paragraph,
+  Pill,
+  CardBase,
+  ButtonLinkIcon,
+  BackAction,
+} from '@/components';
+import { notFound } from 'next/navigation';
 
 export default async function ExperiencePageBySlug({ params }) {
   const [type, slug] = params?.slug;
 
   const experience = await getExperienceDataBySlug(slug, type);
 
-  if (!experience) return null;
+  if (!experience) {
+    return notFound();
+  }
 
-  const { title, text, time, image, tags } = experience;
+  const { title, text, time, image, tags, codeLink, link, altLink } =
+    experience;
 
   return (
     <div>
       <BackAction />
 
-      <CardBase>
+      <CardBase variant="secondary">
         <div className="flex pb-2">
-          <div className="flex gap-3">
+          <div className="flex gap-3 flex-wrap">
             <div>
-              <Title size="medium">{title}</Title>
+              <div translate="no">
+                <Title size="medium">{title}</Title>
+              </div>
               {time && time?.length >= 0 && (
                 <Paragraph size="small" className="font-[500]">
                   {time}
@@ -67,8 +79,43 @@ export default async function ExperiencePageBySlug({ params }) {
           );
         })}
 
+        <div className="flex flex-wrap gap-4">
+          {codeLink?.url && (
+            <ButtonLinkIcon
+              item={{
+                name: 'Github',
+                link: codeLink,
+                label: 'View Code',
+              }}
+              className="py-3"
+            />
+          )}
+
+          {link?.url && (
+            <ButtonLinkIcon
+              item={{
+                name: 'Link',
+                link: link,
+                label: 'View Project',
+              }}
+              className="py-3"
+            />
+          )}
+
+          {altLink?.url && (
+            <ButtonLinkIcon
+              item={{
+                name: 'Link',
+                link: altLink,
+                label: 'View Alt Link',
+              }}
+              className="py-3"
+            />
+          )}
+        </div>
+
         {tags && (
-          <>
+          <div translate="no">
             <Title size="small" className="py-2">
               Tech Stack:
             </Title>
@@ -80,7 +127,7 @@ export default async function ExperiencePageBySlug({ params }) {
                 </li>
               ))}
             </ul>
-          </>
+          </div>
         )}
       </CardBase>
     </div>

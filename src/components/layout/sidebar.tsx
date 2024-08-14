@@ -2,14 +2,13 @@ import { Portfolio } from '@/models';
 import {
   Title,
   Paragraph,
-  ButtonSocialMedia,
+  ButtonLinkIcon,
   Avatar,
   AvatarImage,
   AvatarFallback,
   EmailAction,
+  ResumeAction,
 } from '@/components';
-import { MapPin } from 'lucide-react';
-import ResumeAction from '../actions/resume.action';
 
 interface SidebarProps {
   portfolio: Portfolio;
@@ -40,7 +39,7 @@ export function Sidebar({ portfolio }: SidebarProps) {
           <AvatarFallback>GD</AvatarFallback>
         </Avatar>
       </div>
-      <div className="block py-4">
+      <div className="block py-4" translate="no">
         <Title size="large" type="h1" className="text-4xl">
           {name}
         </Title>
@@ -62,21 +61,16 @@ export function Sidebar({ portfolio }: SidebarProps) {
       </div>
 
       <div className="flex flex-col gap-2 pt-6">
-        <Paragraph size="small" className="grid grid-cols-[16px_1fr] gap-1">
-          <MapPin size={16} />
-          {location}
-        </Paragraph>
-
         <EmailAction email={email} />
         <ResumeAction link={resumeLink?.url} />
       </div>
 
-      <div className="block pt-12 pb-4">
+      <div className="block pt-6 lg:pt-12 lg:pb-4">
         <ul className="flex gap-2 items-center">
           {socialMedia.map((social, index) => {
             return (
               <li key={index}>
-                <ButtonSocialMedia item={social} />
+                <ButtonLinkIcon item={social} />
               </li>
             );
           })}

@@ -4,7 +4,7 @@ import { cn } from '@/utils';
 type Color = 'primary';
 export type ColorClassMap = Record<Color, string>;
 
-interface PillProps {
+interface PillProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   size?: Size;
   color?: Color;
@@ -18,7 +18,7 @@ const sizeClassMap: SizeClassMap = {
 };
 
 const colorClassMap: ColorClassMap = {
-  primary: 'text-white bg-slate-500/70 dark:bg-white/10',
+  primary: 'text-white bg-slate-500/85 dark:bg-white/10',
 };
 
 export function Pill({

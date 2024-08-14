@@ -8,6 +8,7 @@ export interface Experience {
   image?: ImagePrismic;
   link?: LinkPrismic;
   altLink?: LinkPrismic;
+  codeLink?: LinkPrismic;
   tags?: string[];
   time?: string;
   slug: string;
@@ -15,8 +16,9 @@ export interface Experience {
 }
 
 export interface SocialMedia {
-  name: string;
+  name?: string;
   link: LinkPrismic;
+  label?: string;
 }
 
 export interface Portfolio {
