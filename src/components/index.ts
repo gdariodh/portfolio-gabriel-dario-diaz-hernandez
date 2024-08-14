@@ -7,6 +7,7 @@ export * from './data-display/label';
 export * from './data-display/location';
 export * from './data-display/paragraph';
 export * from './data-display/pill';
+export * from './data-display/project-image';
 export * from './data-display/title';
 export * from './data-display/tooltip';
 export * from './inputs/button/button-link-icon';

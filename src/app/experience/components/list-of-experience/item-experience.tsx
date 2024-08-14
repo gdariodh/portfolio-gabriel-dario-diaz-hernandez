@@ -4,7 +4,7 @@ import { truncateText } from '@/utils';
 import { Experience } from '@/models';
 import { ExternalLink } from 'lucide-react';
 import Link from 'next/link';
-import { Title, Paragraph, Pill, CardBase } from '@/components';
+import { Title, Paragraph, Pill, CardBase, ProjectImage } from '@/components';
 
 const MAX_TAGS = 8;
 
@@ -34,21 +34,7 @@ export function ItemExperience({ experience }: ItemExperienceProps) {
             </div>
 
             <div className="mb-auto">
-              {image?.url && (
-                <div>
-                  <div className="bg-slate-800 inline-flex dark:bg-white/5 rounded-md overflow-hidden w-auto h-full p-[4px]">
-                    <div className="h-[24px] w-auto">
-                      <Image
-                        src={image.url}
-                        alt={image.alt || 'experience image'}
-                        className="w-full h-full"
-                        width={image.width || 24}
-                        height={image.height || 24}
-                      />
-                    </div>
-                  </div>
-                </div>
-              )}
+              {image?.url && <ProjectImage image={image} />}
             </div>
           </div>
 

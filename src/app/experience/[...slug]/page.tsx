@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import { getExperienceDataBySlug } from '@/services';
 import {
   Title,
@@ -8,6 +7,7 @@ import {
   CardBase,
   ButtonLinkIcon,
   BackAction,
+  ProjectImage,
 } from '@/components';
 import { notFound } from 'next/navigation';
 
@@ -46,21 +46,7 @@ export default async function ExperiencePageBySlug({
             </div>
 
             <div className="mb-auto">
-              {image?.url && (
-                <div>
-                  <div className="bg-slate-800 inline-flex dark:bg-white/5 rounded-md overflow-hidden w-auto h-full p-[4px]">
-                    <div className="h-[24px] w-auto">
-                      <Image
-                        src={image.url}
-                        alt={image.alt || 'experience image'}
-                        className="w-full h-full"
-                        width={image.width || 24}
-                        height={image.height || 24}
-                      />
-                    </div>
-                  </div>
-                </div>
-              )}
+              {image?.url && <ProjectImage image={image} />}
             </div>
           </div>
         </div>
