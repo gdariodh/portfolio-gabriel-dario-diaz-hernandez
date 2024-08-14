@@ -12,7 +12,7 @@ export function Header() {
 
   return (
     <header
-      className="sticky top-0 rounded-tl-md rounded-tr-md z-40 w-full backdrop-blur text-nowrap flex-none transition-colors duration-500 border-b border-slate-900/20 dark:border-slate-50/[0.2] bg-white/20 supports-backdrop-blur:bg-white/60 dark:bg-slate-900/80"
+      className="sticky top-0 rounded-tl-md rounded-tr-md z-40 w-full backdrop-blur text-nowrap flex-none transition-colors duration-500 border-b border-slate-900/20 dark:border-slate-50/[0.2] bg-white/80 supports-backdrop-blur:bg-white/60 dark:bg-slate-900/80"
       translate="no"
     >
       <Container className="flex items-center justify-between py-4">
