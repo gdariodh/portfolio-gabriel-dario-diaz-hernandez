@@ -15,5 +15,5 @@ export * from './inputs/switch/switch-theme';
 export * from './inputs/switch/switch';
 export * from './layout/container';
 export * from './layout/header';
-export * from './layout/sidebar';
+export * from './layout/menu-nav';
 export * from './layout/theme-provider';

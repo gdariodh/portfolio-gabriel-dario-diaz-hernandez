@@ -1,45 +1,73 @@
-'use client';
-import { usePathname } from 'next/navigation';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-import { cn } from '@/utils';
-import { ROUTES as routes } from '@/constants/routes';
-import { Container, SwitchTheme } from '@/components';
+import { Portfolio } from '@/models';
+import {
+  Title,
+  Paragraph,
+  ButtonLinkIcon,
+  Avatar,
+  AvatarImage,
+  AvatarFallback,
+  EmailAction,
+  ResumeAction,
+} from '@/components';
 
-export function Header() {
-  const pathname = usePathname();
-  const router = useRouter();
+interface HeaderProps {
+  portfolio: Portfolio;
+}
+
+export function Header({ portfolio }: HeaderProps) {
+  const { name, role, summary, socialMedia, image, resumeLink, email } =
+    portfolio;
 
   return (
-    <header
-      className="sticky top-0 rounded-tl-md rounded-tr-md z-40 w-full backdrop-blur text-nowrap flex-none transition-colors duration-500 border-b border-slate-900/20 dark:border-slate-50/[0.2] bg-white/80 supports-backdrop-blur:bg-white/60 dark:bg-slate-900/80"
-      translate="no"
-    >
-      <Container className="flex items-center justify-between py-4 px-4 lg:px-8">
-        <ul className="flex items-center gap-4">
-          {Object.entries(routes).map(([key, value]) => {
-            const { path, label } = value;
+    <header className="flex flex-col px-4 lg:px-8 lg:sticky lg:top-0 lg:max-h-screen py-4 ">
+      <div>
+        <Avatar>
+          <AvatarImage
+            src={image.url}
+            alt={image.alt}
+            width={image.width || 24}
+            height={image.height || 24}
+          />
+          <AvatarFallback>GD</AvatarFallback>
+        </Avatar>
+      </div>
+      <div className="block py-4" translate="no">
+        <Title size="large" type="h1" className="text-4xl">
+          {name}
+        </Title>
+        <Title
+          size="large"
+          type="h2"
+          className=" text-slate-700 dark:text-slate-400"
+        >
+          {role}
+        </Title>
+      </div>
+      <div>
+        <Title size="large" type="h2">
+          Profile
+        </Title>
+        {summary.map((text, index) => (
+          <Paragraph key={index}>{text}</Paragraph>
+        ))}
+      </div>
 
-            const isActive = path === pathname;
+      <div className="flex flex-col gap-2 pt-6">
+        <EmailAction email={email} />
+        <ResumeAction link={resumeLink?.url} />
+      </div>
 
+      <div className="block pt-6 lg:pt-12 lg:pb-4">
+        <ul className="flex gap-2 items-center">
+          {socialMedia.map((social, index) => {
             return (
-              <li key={key}>
-                <Link
-                  href={path}
-                  className={cn(
-                    'text-base text-slate-700 dark:text-slate-400 cursor-pointer hover:opacity-85',
-                    isActive && 'text-primary dark:text-primary'
-                  )}
-                >
-                  {label.toLowerCase()}
-                </Link>
+              <li key={index}>
+                <ButtonLinkIcon item={social} />
               </li>
             );
           })}
         </ul>
-
-        <SwitchTheme />
-      </Container>
+      </div>
     </header>
   );
 }

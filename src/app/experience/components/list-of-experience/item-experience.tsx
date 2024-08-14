@@ -57,9 +57,11 @@ export function ItemExperience({ experience }: ItemExperienceProps) {
           </div>
         </div>
 
-        <Paragraph size="small" className="max-w-xl py-2">
-          {truncateText(text?.[0], 250)}
-        </Paragraph>
+        {text && text?.length > 0 && (
+          <Paragraph size="small" className="max-w-xl py-2">
+            {truncateText(text?.[0], 250)}
+          </Paragraph>
+        )}
 
         {tags && (
           <ul className="flex items-center gap-1 flex-wrap" translate="no">
