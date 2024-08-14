@@ -28,7 +28,7 @@ export function Sidebar({ portfolio }: SidebarProps) {
   } = portfolio;
 
   return (
-    <div className="flex flex-col">
+    <aside className="flex flex-col">
       <div>
         <Avatar>
           <AvatarImage
@@ -82,6 +82,6 @@ export function Sidebar({ portfolio }: SidebarProps) {
           })}
         </ul>
       </div>
-    </div>
+    </aside>
   );
 }

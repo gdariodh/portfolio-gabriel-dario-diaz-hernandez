@@ -23,15 +23,22 @@ export const portfolioAdapter = (data: any) => {
       };
     }),
     workExperiences: data.experiences.map((experience: any) => {
+      const tags = tagsAdapter(
+        multiParagraphAdapter(experience.tags_experience)
+      );
       return {
         title: singleParagraphAdapter(experience.title_experience),
         text: multiParagraphAdapter(experience.text_experience),
         time: singleParagraphAdapter(experience.time_experience),
         link: experience.link_experience,
         altLink: experience.alt_link_experience,
+        tags,
         image: imageAdapter(experience.image_experience),
+        slug: experience.id_experience,
+        type: 'work-experience',
       };
     }),
+    showPersonalProjects: data.show_personal_projects,
     personalProjects: data.projects.map((project: any) => {
       const tags = tagsAdapter(multiParagraphAdapter(project.tags_project));
       return {
@@ -41,6 +48,8 @@ export const portfolioAdapter = (data: any) => {
         altLink: project.alt_link_project,
         tags,
         image: imageAdapter(project.image_project),
+        slug: project.id_project,
+        type: 'personal-project',
       };
     }),
   } as Portfolio;

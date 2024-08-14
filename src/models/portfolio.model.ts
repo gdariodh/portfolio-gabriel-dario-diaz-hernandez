@@ -1,13 +1,17 @@
 import { LinkPrismic, ImagePrismic } from '@/models/prismic.model';
 
+export type ExperienceType = 'work-experience' | 'personal-project';
+
 export interface Experience {
   title: string;
-  text: string;
+  text: string[];
   image?: ImagePrismic;
   link?: LinkPrismic;
   altLink?: LinkPrismic;
   tags?: string[];
   time?: string;
+  slug: string;
+  type: ExperienceType;
 }
 
 export interface SocialMedia {
@@ -27,4 +31,5 @@ export interface Portfolio {
   resumeLink: LinkPrismic;
   location: string;
   email: string;
+  showPersonalProjects: boolean;
 }

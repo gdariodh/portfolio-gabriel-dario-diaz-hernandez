@@ -3,7 +3,6 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { Header, Container, ThemeProvider, Sidebar } from '@/components';
 import { getPortfolioData } from '@/services';
-import { portfolioAdapter } from '@/adapters';
 
 const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
@@ -17,8 +16,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const data = await getPortfolioData();
-  const portfolio = portfolioAdapter(data.data);
+  const portfolio = await getPortfolioData();
 
   return (
     <html lang="en" suppressHydrationWarning>
@@ -29,14 +27,14 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Container className="relative grid grid-cols-1 lg:grid-cols-[400px_1fr] gap-6 pb-12">
-            <div className="py-4">
+          <Container className="relative grid grid-cols-1 min-h-screen lg:grid-cols-[400px_1fr] gap-6 pb-12">
+            <div className="py-4 h-screen sticky top-0">
               <Sidebar portfolio={portfolio} />
             </div>
 
-            <div className="grid grid-cols-1 relative">
+            <div className="flex flex-col relative ">
               <Header />
-              <main className="grid grid-cols-1 px-8 pt-6 pb-12 border-b-2 border-slate-900/10 dark:border-slate-50/[0.1] bg-white/40 dark:bg-white/5 rounded-bl-lg rounded-br-lg">
+              <main className="grid grid-cols-1 px-8 pt-6  pb-12 border-b-2 border-slate-900/10 dark:border-slate-50/[0.1] bg-white/20 dark:bg-white/5 rounded-bl-lg rounded-br-lg">
                 {children}
               </main>
             </div>

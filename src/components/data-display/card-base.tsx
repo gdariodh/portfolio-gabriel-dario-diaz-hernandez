@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { cn } from '@/utils';
 
-interface CardBaseProps {
+interface CardBaseProps extends  {
   children: ReactNode;
   className?: string;
 }

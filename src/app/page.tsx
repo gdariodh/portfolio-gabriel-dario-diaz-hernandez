@@ -1,26 +1,25 @@
 import { getPortfolioData } from '@/services';
-import { portfolioAdapter } from '@/adapters';
 import { ListOfExperience } from '@/app/experience/components';
 
 export default async function Home() {
-  const data = await getPortfolioData();
-  const portfolio = portfolioAdapter(data.data);
-
-  const { workExperiences, personalProjects } = portfolio;
+  const portfolio = await getPortfolioData();
+  const { workExperiences, personalProjects, showPersonalProjects } = portfolio;
 
   return (
     <div className="flex flex-col gap-8">
       <ListOfExperience
         experiences={workExperiences}
-        title={'Work experiences'}
-        label={' that I have had the opportunity to participate in.'}
+        title={'Work Experiences'}
+        label={'Opportunities I Have Had the Privilege to Participate In'}
       />
 
-      <ListOfExperience
-        experiences={personalProjects}
-        title={'Personal projects'}
-        label=" that I have developed in my free time."
-      />
+      {showPersonalProjects && (
+        <ListOfExperience
+          experiences={personalProjects}
+          title={'Personal Projects'}
+          label="Developed in My Free Time"
+        />
+      )}
     </div>
   );
 }
