@@ -11,7 +11,11 @@ import {
 } from '@/components';
 import { notFound } from 'next/navigation';
 
-export default async function ExperiencePageBySlug({ params }) {
+export default async function ExperiencePageBySlug({
+  params,
+}: {
+  params: { slug: any[] };
+}) {
   const [type, slug] = params?.slug;
 
   const experience = await getExperienceDataBySlug(slug, type);
