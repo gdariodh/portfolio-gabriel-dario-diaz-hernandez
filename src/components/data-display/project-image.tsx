@@ -8,7 +8,7 @@ interface ProjectImageProps {
 
 export function ProjectImage({ image }: ProjectImageProps) {
   return (
-    <div className="bg-slate-800 block dark:bg-white/5 rounded-md overflow-hidden p-[4px]">
+    <div className="hidden lg:block bg-slate-800 dark:bg-white/5 rounded-md overflow-hidden p-[4px]">
       <div className="h-[24px] max-h-[24px] w-auto">
         <Image
           src={image.url}
