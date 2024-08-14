@@ -1,10 +1,14 @@
 import { portfolioAdapter } from '@/adapters';
+import { PRISMIC_ENVIRONMENT } from '@/constants';
 import { ExperienceType } from '@/models';
 import { createClientPrismic } from '@/prismicio';
 
 export const getPortfolioData = async () => {
   const client = createClientPrismic();
-  const data = await client.getSingle('portfolio');
+  const data = await client.getByUID(
+    'portfolio',
+    `${PRISMIC_ENVIRONMENT}-portfolio`
+  );
   return portfolioAdapter(data?.data);
 };
 
