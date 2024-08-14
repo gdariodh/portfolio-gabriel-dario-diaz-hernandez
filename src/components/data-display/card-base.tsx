@@ -19,10 +19,10 @@ const cardVariants = cva(
   }
 );
 
-interface CardBaseProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface CardBaseProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof cardVariants> {
   children: React.ReactNode;
-  className?: string;
-  variant?: 'primary' | 'secondary';
   asChild?: boolean;
 }
 

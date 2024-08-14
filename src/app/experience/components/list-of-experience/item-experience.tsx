@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { cn, truncateText } from '@/utils';
+import { truncateText } from '@/utils';
 import { Experience } from '@/models';
 import { ExternalLink } from 'lucide-react';
 import Link from 'next/link';
