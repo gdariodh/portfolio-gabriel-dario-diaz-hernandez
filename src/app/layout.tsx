@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
-import { Header, Container, ThemeProvider, MenuNav } from '@/components';
+import { Inter } from 'next/font/google';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { getPortfolioData } from '@/services';
+import { Header, Container, ThemeProvider, MenuNav } from '@/components';
 
 const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
@@ -37,6 +38,7 @@ export default async function RootLayout({
             </div>
           </Container>
         </ThemeProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
