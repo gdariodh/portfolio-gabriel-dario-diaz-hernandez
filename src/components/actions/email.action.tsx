@@ -17,11 +17,11 @@ export function EmailAction({ email }: EmailActionProps) {
 
   return (
     <button
-      className="flex items-center gap-1 hover:underline"
+      className="flex items-center gap-1 hover:underline max-w-fit"
       onClick={copyClipboard}
     >
       <div className="grid grid-cols-[16px_1fr] items-center gap-1">
-        <Mail size={16} />
+        <Mail size={16} className="hover:scale-110" />
 
         <Paragraph size="small" className="block lg:hidden">
           Copy Email
@@ -32,7 +32,7 @@ export function EmailAction({ email }: EmailActionProps) {
         </Paragraph>
       </div>
 
-      <Clipboard size={16} />
+      <Clipboard size={16} className="hover:scale-110" />
 
       <Toaster
         position="bottom-right"

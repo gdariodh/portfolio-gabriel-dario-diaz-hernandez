@@ -4,12 +4,12 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { Slot } from '@radix-ui/react-slot';
 
 const cardVariants = cva(
-  'block p-4 border-slate-900/20 dark:border-slate-50/[0.1] bg-white/70 dark:bg-white/5 rounded-lg transition-colors ease-in duration-200',
+  'block p-4 border-slate-900/30 dark:border-slate-50/[0.1] bg-white/70 dark:bg-white/5 rounded-lg transition-colors ease-in duration-200',
   {
     variants: {
       variant: {
         primary:
-          'border-b-2 dark:hover:bg-slate-900 dark:hover:border-b dark:hover:border-b-primary dark:border-0 border-2 hover:border-slate-600',
+          'border-b-2 dark:hover:bg-slate-900 dark:hover:border-b dark:hover:border-b-primary-dark dark:border-0 border-2 hover:border-slate-600',
         secondary: 'border-slate-600 dark:border-slate-600 border-2',
       },
     },

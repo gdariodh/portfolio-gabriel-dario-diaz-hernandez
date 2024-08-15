@@ -26,7 +26,7 @@ export function MenuNav() {
                   href={path}
                   className={cn(
                     'text-base text-slate-700 dark:text-slate-400 cursor-pointer hover:opacity-85',
-                    isActive && 'text-primary dark:text-primary'
+                    isActive && 'text-primary-default dark:text-primary-dark'
                   )}
                 >
                   {label.toLowerCase()}

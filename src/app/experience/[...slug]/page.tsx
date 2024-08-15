@@ -34,7 +34,7 @@ export default async function ExperiencePageBySlug({
       <CardBase variant="secondary">
         <div className="flex pb-2">
           <div className="flex gap-3 flex-wrap">
-            <div>
+            <div className="max-w-60 lg:max-w-md">
               <div translate="no">
                 <Title size="medium">{title}</Title>
               </div>

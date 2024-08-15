@@ -11,10 +11,11 @@ const config: Config = {
     extend: {
       colors: {
         // Brand colors
-        primary: '#EB3678',
-        // primary: '#2DD881',
+        primary: {
+          default: '#1C0B19',
+          dark: '#EB3678',
+        },
         secondary: '#1C0B19',
-        accent: '#F5F5F5',
         background: '#F5F5F5',
         esmerald: '#2DD881',
       },

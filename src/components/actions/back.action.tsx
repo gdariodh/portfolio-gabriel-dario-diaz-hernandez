@@ -11,7 +11,8 @@ export function BackAction({ href = '/' }: BackActionProps) {
     <div className="pb-4" translate="no">
       <Link href={href}>
         <div className="flex gap-1 items-center hover:underline">
-          <ArrowLeft size={24} /> <span className="text-sm">Back</span>
+          <ArrowLeft size={24} className="hover:scale-110" />{' '}
+          <span className="text-sm">Back</span>
         </div>
       </Link>
     </div>

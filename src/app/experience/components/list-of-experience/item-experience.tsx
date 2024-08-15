@@ -21,7 +21,7 @@ export function ItemExperience({ experience }: ItemExperienceProps) {
       <CardBase variant="primary">
         <div className="flex relative">
           <div className="flex gap-3 flex-wrap">
-            <div className="max-w-42 lg:max-w-md">
+            <div className="max-w-60 lg:max-w-md">
               <div translate="no">
                 <Title size="medium">{title}</Title>
               </div>
@@ -38,7 +38,7 @@ export function ItemExperience({ experience }: ItemExperienceProps) {
           </div>
 
           <div className="absolute right-0">
-            <ExternalLink size={16} className="ml-1 hover:scale-110" />
+            <ExternalLink size={16} className="hover:scale-110" />
           </div>
         </div>
 

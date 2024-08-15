@@ -11,9 +11,10 @@ export function ResumeAction({ link }: ResumeActionProps) {
     <a
       href={link}
       target="_blank"
-      className="hover:underline grid grid-cols-[16px_1fr] gap-1"
+      className="hover:underline grid grid-cols-[16px_1fr] gap-1 max-w-fit"
     >
-      <FileDown size={16} /> <Paragraph size="small">View Resume</Paragraph>
+      <FileDown size={16} className="hover:scale-110" />{' '}
+      <Paragraph size="small">View Resume</Paragraph>
     </a>
   );
 }

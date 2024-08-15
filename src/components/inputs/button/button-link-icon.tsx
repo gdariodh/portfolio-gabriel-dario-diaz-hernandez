@@ -41,7 +41,8 @@ export function ButtonLinkIcon({ item, className }: ButtonLinkIconProps) {
         className="flex gap-1 items-center hover:underline hover:opacity-70
         "
       >
-        {icon} <span className="text-sm">{label}</span>
+        <span className="hover:scale-110">{icon}</span>
+        <span className="text-sm">{label}</span>
       </a>
     </div>
   );
