@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import { truncateText } from '@/utils';
 import { Experience } from '@/models';
 import { ExternalLink } from 'lucide-react';
