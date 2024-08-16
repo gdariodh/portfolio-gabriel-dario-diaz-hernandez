@@ -1,10 +1,10 @@
 export const ROUTES = {
   home: {
     path: '/',
-    label: 'Home',
+    label: 'home',
   },
   contact: {
     path: '/contact',
-    label: 'Contact',
+    label: 'contact',
   },
 };

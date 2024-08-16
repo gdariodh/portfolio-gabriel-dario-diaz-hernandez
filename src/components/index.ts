@@ -14,6 +14,7 @@ export * from './inputs/button/button-link-icon';
 export * from './inputs/button/button';
 export * from './inputs/switch/switch-theme';
 export * from './inputs/switch/switch';
+export * from './layout/active-link';
 export * from './layout/container';
 export * from './layout/header';
 export * from './layout/menu-nav';

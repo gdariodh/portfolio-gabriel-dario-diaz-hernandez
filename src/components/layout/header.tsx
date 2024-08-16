@@ -19,7 +19,7 @@ export function Header({ portfolio }: HeaderProps) {
     portfolio;
 
   return (
-    <header className="flex flex-col px-4 lg:px-8 lg:sticky lg:top-0 lg:max-h-screen py-4 ">
+    <header className="flex flex-col px-4 lg:px-8 lg:sticky lg:top-0 lg:max-h-screen py-4">
       <div>
         <Avatar>
           <AvatarImage

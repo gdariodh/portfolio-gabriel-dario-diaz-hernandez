@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { getPortfolioData } from '@/services';
 import { Header, Container, ThemeProvider, MenuNav } from '@/components';
+import { cn } from '@/utils';
 
 const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
@@ -32,7 +33,15 @@ export default async function RootLayout({
             <Header portfolio={portfolio} />
             <div className="flex flex-col relative">
               <MenuNav />
-              <main className="grid grid-cols-1 px-4 lg:px-8 pt-6 pb-8 border-b-2 border-slate-900/10 dark:border-slate-50/[0.1] bg-slate-50/[0.4] dark:bg-white/5 rounded-bl-lg rounded-br-lg mb-12">
+              <main
+                className={cn(
+                  'grid grid-cols-1 bg-slate-900/[0.08] lg:bg-slate-900/[0.04] dark:bg-white/5 ',
+                  'border-2 border-t-0 border-slate-900/[0.1]',
+                  'dark:border-b-2 dark:border-slate-50/[0.1] dark:border-l-0 dark:border-r-0',
+                  'rounded-bl-lg rounded-br-lg',
+                  'px-4 lg:px-8 pt-6 pb-8 mb-12',
+                )}
+              >
                 {children}
               </main>
             </div>

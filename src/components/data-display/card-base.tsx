@@ -16,7 +16,7 @@ const cardVariants = cva(
     defaultVariants: {
       variant: 'primary',
     },
-  }
+  },
 );
 
 export interface CardBaseProps
@@ -37,7 +37,7 @@ const CardBase = React.forwardRef<HTMLDivElement, CardBaseProps>(
         {...props}
       />
     );
-  }
+  },
 );
 CardBase.displayName = 'CardBase';
 
