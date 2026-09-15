@@ -104,7 +104,7 @@ export default async function ExperiencePageBySlug({
           )}
         </div>
 
-        {tags && (
+        {tags && tags?.length > 0 && (
           <div translate="no">
             <Title size="small" className="py-2">
               Tech Stack:
